@@ -7,11 +7,8 @@ public class FileRead{
 
     public StringBuilder fileRead(){
         StringBuilder text = new StringBuilder();
-        Scanner scanner = new Scanner(System.in);
-        String pathFile = scanner.nextLine();
-        scanner.close();
 
-        try(FileInputStream fileInputStream = new FileInputStream(pathFile);
+        try(FileInputStream fileInputStream = new FileInputStream(new Scanner(System.in).nextLine());
            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream))){
            while(bufferedReader.ready()){
                text.append((char)bufferedReader.read());
