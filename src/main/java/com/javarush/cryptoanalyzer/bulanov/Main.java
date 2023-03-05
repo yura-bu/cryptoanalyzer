@@ -1,7 +1,19 @@
 package com.javarush.cryptoanalyzer.bulanov;
 
+
+import com.javarush.cryptoanalyzer.bulanov.repository.FileWrite;
+import com.javarush.cryptoanalyzer.bulanov.servise.FileCrypto;
+
+
 public class Main{
     public static void main(String[] args){
-        System.out.println("Hello world!");
+
+        FileCrypto cryptoText = new FileCrypto();
+        FileWrite fileWriter = new FileWrite();
+        fileWriter.fileWrite(cryptoText.fileEncryption());
+
+
+
+
     }
 }

@@ -5,14 +5,15 @@ import com.javarush.cryptoanalyzer.bulanov.repository.FileRead;
 
 
 public class FileCrypto{
-    public StringBuilder fileEncryption(){
+    public char[] fileEncryption(){
 
         StringBuilder cryptoText = new StringBuilder();
         FileRead originalText = new FileRead();
         for(int i = 0; i < originalText.fileRead().length(); i++){
+
             int offset = 8;
             int index = CryptoAlphabets.ALPHABET.indexOf(originalText.fileRead().charAt(i));
-            System.out.println(index);
+
             if(index == -1){
                 cryptoText.append(originalText.fileRead().charAt(i));
 
@@ -25,6 +26,6 @@ public class FileCrypto{
 
         }
 
-        return cryptoText;
+        return cryptoText.toString().toCharArray();
     }
 }
