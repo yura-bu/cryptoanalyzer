@@ -1,6 +1,7 @@
 package com.javarush.cryptoanalyzer.bulanov.servise;
 
 import com.javarush.cryptoanalyzer.bulanov.constants.CryptoAlphabets;
+import com.javarush.cryptoanalyzer.bulanov.constants.RandomOffset;
 import com.javarush.cryptoanalyzer.bulanov.repository.FileRead;
 
 
@@ -11,7 +12,7 @@ public class FileCrypto{
         FileRead originalText = new FileRead();
         for(int i = 0; i < originalText.fileRead().length(); i++){
 
-            int offset = 8;
+            int offset = RandomOffset.randomOffset();
             int index = CryptoAlphabets.ALPHABET.indexOf(originalText.fileRead().charAt(i));
 
             if(index == -1){
