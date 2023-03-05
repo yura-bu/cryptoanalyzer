@@ -3,7 +3,7 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="ISO-8859-1">
     <file url="file://$PROJECT_DIR$/ExampleText.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/javarush/cryptoanalyzer/bulanov/repository/FileRead.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/javarush/cryptoanalyzer/bulanov/repository/ReaderFile.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

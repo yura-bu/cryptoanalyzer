@@ -3,9 +3,9 @@ package com.javarush.cryptoanalyzer.bulanov.repository;
 import java.io.*;
 import java.util.Scanner;
 
-public class FileRead{
+public class ReaderFile{
 
-    public StringBuilder fileRead(){
+    public StringBuilder readFile(){
         StringBuilder text = new StringBuilder();
 
         try(FileInputStream fileInputStream = new FileInputStream(new Scanner(System.in).nextLine());

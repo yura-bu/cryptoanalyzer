@@ -5,8 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
-public class FileWrite{
-    public  void fileWrite(char[] cryptoText){
+public class WriterFile{
+    public  void writeFile(char[] cryptoText){
         try(FileOutputStream fileOutputStream = new FileOutputStream("CryptoExampleText.txt");
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream))){
             bufferedWriter.write(cryptoText);

@@ -2,17 +2,17 @@ package com.javarush.cryptoanalyzer.bulanov.servise;
 
 import com.javarush.cryptoanalyzer.bulanov.constants.CryptoAlphabets;
 import com.javarush.cryptoanalyzer.bulanov.constants.RandomOffset;
-import com.javarush.cryptoanalyzer.bulanov.repository.FileRead;
+import com.javarush.cryptoanalyzer.bulanov.repository.ReaderFile;
 
 
-public class FileCrypto{
+public class EncryptorFile{
     private final int OFFSET = RandomOffset.randomOffset();
 
     public char[] fileEncryption(){
 
         StringBuilder cryptoText = new StringBuilder();
 
-        StringBuilder originalText = new FileRead().fileRead();
+        StringBuilder originalText = new ReaderFile().readFile();
         System.out.println(OFFSET);
         for(int i = 0; i < originalText.length(); i++){
 
