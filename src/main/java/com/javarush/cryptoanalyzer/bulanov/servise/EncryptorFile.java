@@ -10,7 +10,7 @@ public class EncryptorFile{
     public char[] fileEncryption(StringBuilder originalText){
 
         StringBuilder cryptoText = new StringBuilder();
-        System.out.println(OFFSET);
+
         for(int i = 0; i < originalText.length(); i++){
 
             int index = CryptoAlphabets.ALPHABET.indexOf(originalText.charAt(i));

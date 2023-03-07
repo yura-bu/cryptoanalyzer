@@ -6,9 +6,8 @@ import com.javarush.cryptoanalyzer.bulanov.repository.ReaderFile;
 public class DecryptorFile{
 //    private StringBuilder decryptedText = new StringBuilder();
 
-    public char[] decryptedFile(){
-        ReaderFile encryptedFile = new ReaderFile();
-        StringBuilder encryptedText = encryptedFile.readFile();
+    public char[] decryptedFile(StringBuilder encryptedText){
+
         int code = encryptedText.length()/2- RandomOffset.SECRET_CODE - 1;
         int offset = Integer.parseInt(encryptedText.substring(code, code+2));
         encryptedText.delete(code, code+2);
