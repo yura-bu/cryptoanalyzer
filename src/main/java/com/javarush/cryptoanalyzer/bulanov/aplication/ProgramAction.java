@@ -1,37 +1,53 @@
 package com.javarush.cryptoanalyzer.bulanov.aplication;
 
-import com.javarush.cryptoanalyzer.bulanov.constants.ConstantsIO;
+
 import com.javarush.cryptoanalyzer.bulanov.repository.ReaderFile;
 import com.javarush.cryptoanalyzer.bulanov.repository.WriterFile;
-import com.javarush.cryptoanalyzer.bulanov.servise.DecryptorFile;
+import com.javarush.cryptoanalyzer.bulanov.servise.BruteForce;
+import com.javarush.cryptoanalyzer.bulanov.servise.DecryptFile;
 import com.javarush.cryptoanalyzer.bulanov.servise.EncryptorFile;
+
+import static com.javarush.cryptoanalyzer.bulanov.constants.ConstantsIO.*;
 
 public class ProgramAction{
     public void encryption(){
-        System.out.println(ConstantsIO.ENTER_ORIG_FILE_PATH);
+        System.out.println(ENTER_ORIG_FILE_PATH);
 
         ReaderFile readerFile = new ReaderFile();
         EncryptorFile encryptorFile = new EncryptorFile();
         StringBuilder stringBuilder = readerFile.readFile();
 
-        System.out.println(ConstantsIO.ENTER_CRYPT_FILE_PATH);
+        System.out.println(ENTER_CRYPT_FILE_PATH);
 
         WriterFile writerFileEncryption = new WriterFile();
         writerFileEncryption.writeFile(encryptorFile.fileEncryption(stringBuilder));
 
-        System.out.println(ConstantsIO.END_ENCRYPTION);
+        System.out.println(END_ENCRYPTION);
     }
 
     public void decryption(){
-        System.out.println(ConstantsIO.ENTER_ENCRYPTED_FILE_PATH);
+        System.out.println(ENTER_ENCRYPTED_FILE_PATH);
         ReaderFile readerFile = new ReaderFile();
-        DecryptorFile decryptorFile = new DecryptorFile();
+        DecryptFile decryptFile = new DecryptFile();
         StringBuilder  text = readerFile.readFile();
 
-        System.out.println(ConstantsIO.ENTER_DECRYPTED_FILE_PATH);
+        System.out.println(ENTER_DECRYPTED_FILE_PATH);
         WriterFile writerFileDecryption = new WriterFile();
-        writerFileDecryption.writeFile(decryptorFile.decryptedFile(text));
+        writerFileDecryption.writeFile(decryptFile.decryptedFile(text));
 
-        System.out.println(ConstantsIO.END_DECRYPTION);
+        System.out.println(END_DECRYPTION);
+    }
+
+    public void bruteForceDecryption(){
+        System.out.println(ENTER_ENCRYPTED_FILE_PATH);
+        ReaderFile readerFile = new ReaderFile();
+        BruteForce bruteForce = new BruteForce();
+        StringBuilder  text = readerFile.readFile();
+
+        System.out.println(ENTER_DECRYPTED_FILE_PATH);
+        WriterFile writerFileDecryption = new WriterFile();
+        writerFileDecryption.writeFile(bruteForce.bruteForceDecoder(text));
+
+        System.out.println(END_DECRYPTION);
     }
 }
