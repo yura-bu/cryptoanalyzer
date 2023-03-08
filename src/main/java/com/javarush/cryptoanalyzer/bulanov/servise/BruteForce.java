@@ -16,12 +16,10 @@ private final Pattern pattern = Pattern.compile(str);
             Matcher matcher = pattern.matcher(decodingText);
 
             if(matcher.find()) {
-                System.out.println(i);
                 break;
             }
         }
         System.out.println(decodingText);
        return decodingText.toString().toCharArray();
     }
-
 }
