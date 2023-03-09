@@ -28,25 +28,25 @@ public class ProgramAction{
     public void decryption(){
         System.out.println(ENTER_ENCRYPTED_FILE_PATH);
         ReaderFile readerFile = new ReaderFile();
-        DecryptFile decryptFile = new DecryptFile();
-        StringBuilder  text = readerFile.readFile();
+        DecryptFile decryptFile = new DecryptFile(readerFile.readFile());
 
         System.out.println(ENTER_DECRYPTED_FILE_PATH);
         WriterFile writerFileDecryption = new WriterFile();
-        writerFileDecryption.writeFile(decryptFile.decryptedFile(text));
+        writerFileDecryption.writeFile(decryptFile.decryptedFile());
 
         System.out.println(END_DECRYPTION);
     }
 
     public void bruteForceDecryption(){
+
         System.out.println(ENTER_ENCRYPTED_FILE_PATH);
         ReaderFile readerFile = new ReaderFile();
-        BruteForce bruteForce = new BruteForce();
-        StringBuilder  text = readerFile.readFile();
+        BruteForce bruteForce = new BruteForce(readerFile.readFile());
+
 
         System.out.println(ENTER_DECRYPTED_FILE_PATH);
         WriterFile writerFileDecryption = new WriterFile();
-        writerFileDecryption.writeFile(bruteForce.bruteForceDecoder(text));
+        writerFileDecryption.writeFile(bruteForce.bruteForceDecoder());
 
         System.out.println(END_DECRYPTION);
     }

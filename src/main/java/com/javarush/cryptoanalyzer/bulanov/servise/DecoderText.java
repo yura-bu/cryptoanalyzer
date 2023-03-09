@@ -4,7 +4,11 @@ package com.javarush.cryptoanalyzer.bulanov.servise;
 import static com.javarush.cryptoanalyzer.bulanov.constants.CryptoAlphabets.ALPHABET;
 
 public class DecoderText{
+
     private final StringBuilder encryptedText;
+    public StringBuilder getEncryptedText(){
+        return encryptedText;
+    }
 
     public DecoderText(StringBuilder encryptedText){
         this.encryptedText = encryptedText;

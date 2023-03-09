@@ -3,15 +3,19 @@ package com.javarush.cryptoanalyzer.bulanov.servise;
 import com.javarush.cryptoanalyzer.bulanov.constants.RandomOffset;
 
 
-public class DecryptFile{
+public class DecryptFile extends DecoderText{
 
 
-    public char[] decryptedFile(StringBuilder encryptedText){
+    public DecryptFile(StringBuilder encryptedText){
+        super(encryptedText);
+    }
 
-        int code = encryptedText.length()/2- RandomOffset.SECRET_CODE - 1;
-        int offset = Integer.parseInt(encryptedText.substring(code, code+2));
-        encryptedText.delete(code, code+2);
-        DecoderText decoderText = new DecoderText(encryptedText);
+    public char[] decryptedFile(){
+
+        int code = getEncryptedText().length()/2- RandomOffset.SECRET_CODE - 1;
+        int offset = Integer.parseInt(getEncryptedText().substring(code, code+2));
+        getEncryptedText().delete(code, code+2);
+        DecoderText decoderText = new DecoderText(getEncryptedText());
         return decoderText.textDecoding(offset).toString().toCharArray();
     }
 
