@@ -13,6 +13,7 @@ public class EntryPoint{
         MainController mainController = new MainController(view);
         Application application = new Application(mainController);
         Result result = application.run();
+        
         switch (result.getResultCode()){
             case OK -> System.out.println("The application completed successfully!!! ");
             case ERROR -> System.out.println("The application has exited with an error: " + result.getApplicationException().getMessage());

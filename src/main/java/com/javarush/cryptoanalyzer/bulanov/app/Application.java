@@ -26,4 +26,7 @@ public class Application{
          default -> FunctionCode.UNSUPPORTED_FUNCTION.getFunction();
         };
     }
+    public void printResult(Result result){
+        mainController.view().printResult(result);
+    }
 }

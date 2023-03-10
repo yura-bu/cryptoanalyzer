@@ -1,7 +1,11 @@
 package com.javarush.cryptoanalyzer.bulanov.view;
 
 import com.javarush.cryptoanalyzer.bulanov.constants.RandomOffset;
+import com.javarush.cryptoanalyzer.bulanov.entity.Result;
+
 import java.util.Scanner;
+
+import static com.javarush.cryptoanalyzer.bulanov.constants.ApplicationCompletionConstants.*;
 import static com.javarush.cryptoanalyzer.bulanov.constants.ConstantsIO.*;
 public class ConsolView implements View{
     private final String[] parameters = new String[4];
@@ -22,6 +26,14 @@ public class ConsolView implements View{
         }
         scanner.close();
         return parameters;
+    }
+
+    @Override
+    public void printResult(Result result){
+        switch (result.getResultCode()){
+            case OK -> System.out.println(SUCCESS);
+            case ERROR -> System.out.println(EXCEPTION + result.getApplicationException().getMessage());
+        }
     }
 
     private void getBruteForce(){
