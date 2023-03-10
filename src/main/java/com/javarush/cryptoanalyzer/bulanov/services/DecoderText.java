@@ -1,19 +1,11 @@
-package com.javarush.cryptoanalyzer.bulanov.servise;
+package com.javarush.cryptoanalyzer.bulanov.services;
 
 
 import static com.javarush.cryptoanalyzer.bulanov.constants.CryptoAlphabets.ALPHABET;
 
 public class DecoderText{
 
-    private final StringBuilder encryptedText;
-    public StringBuilder getEncryptedText(){
-        return encryptedText;
-    }
-
-    public DecoderText(StringBuilder encryptedText){
-        this.encryptedText = encryptedText;
-    }
-    public StringBuilder textDecoding(int offset){
+    public StringBuilder textDecoding(int offset, StringBuilder encryptedText){
 
         StringBuilder decryptedText = new StringBuilder();
 

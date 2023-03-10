@@ -3,10 +3,8 @@ package com.javarush.cryptoanalyzer.bulanov.constants;
 import java.util.Random;
 
 public class RandomOffset{
-    public static final int SECRET_CODE = 2;
-
-    public static int randomOffset(){
+    public static String randomOffset(){
         Random offset = new Random();
-        return offset.nextInt(10,40);
+        return String.valueOf(offset.nextInt(10,80));
     }
 }
