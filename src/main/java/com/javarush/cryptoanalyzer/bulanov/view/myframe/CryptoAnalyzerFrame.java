@@ -6,6 +6,7 @@ public class CryptoAnalyzerFrame extends JFrame{
     public static JButton jButtonEncode;
     public static JButton jButtonDecode;
     public static JButton jButtonBruteForce;
+    public static JButton jButtonExit;
     public static JLabel jLabelResult;
     public static JLabel jLabelKey;
     public static final String[] parameters = new String[4];
@@ -15,6 +16,7 @@ public class CryptoAnalyzerFrame extends JFrame{
         actionJButtonEncode();
         actionJButtonDecode();
         actionJButtonBruteForce();
+        actionJButtonExit();
     }
     private void initComponentsCryptoAnalyzerFrame(){
 
@@ -44,6 +46,10 @@ public class CryptoAnalyzerFrame extends JFrame{
         jLabelKey = new JLabel();
         jLabelKey.setBounds(50, 200, 250, 20);
         this.add(jLabelKey);
+
+        jButtonExit = new JButton("Exit");
+        jButtonExit.setBounds(215, 220, 150, 40);
+        this.add(jButtonExit);
 
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLayout(null);
@@ -77,6 +83,9 @@ public class CryptoAnalyzerFrame extends JFrame{
             bruteForceFrame.actionJButtonEnterOne();
             parameters[0] = "3";
         });
+    }
+    private void actionJButtonExit(){
+        jButtonExit.addActionListener(e -> this.dispose());
     }
 }
 
