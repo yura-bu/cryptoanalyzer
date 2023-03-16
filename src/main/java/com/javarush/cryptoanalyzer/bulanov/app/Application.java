@@ -12,7 +12,7 @@ public class Application{
     }
 
     public Result run(){
-        String[] parameters = mainController.view().getParameters();
+        String[] parameters = mainController.view().parameters();
         String mode = parameters[0];
         Function function = getFunction(mode);
         return function.execute(parameters);
@@ -25,8 +25,5 @@ public class Application{
          case "3" -> FunctionCode.BRUTE_FORCE.getFunction();
          default -> FunctionCode.UNSUPPORTED_FUNCTION.getFunction();
         };
-    }
-    public void printResult(Result result){
-        mainController.view().printResult(result);
     }
 }

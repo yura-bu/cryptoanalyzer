@@ -11,7 +11,7 @@ public class ConsolView implements View{
     private final String[] parameters = new String[4];
     Scanner scanner = new Scanner(System.in);
     @Override
-    public String[] getParameters(){
+    public String[] parameters(){
         System.out.println(ENTER_FUNCTION_COD);
         parameters[0] = scanner.nextLine();
         parameters[3] = RandomOffset.randomOffset();

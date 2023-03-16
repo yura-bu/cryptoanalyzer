@@ -7,6 +7,7 @@ import com.javarush.cryptoanalyzer.bulanov.repository.ReaderFile;
 import com.javarush.cryptoanalyzer.bulanov.repository.ResultCode;
 import com.javarush.cryptoanalyzer.bulanov.repository.WriterFile;
 
+import java.util.Arrays;
 
 
 public class Encode implements Function{
@@ -32,6 +33,7 @@ public class Encode implements Function{
     @Override
     public Result execute(String[] parameters){
         try {
+            System.out.println("encode " + Arrays.toString(parameters));
             ReaderFile readerFile = new ReaderFile(parameters[1]);
             Encode encode = new Encode();
             StringBuilder stringBuilder = readerFile.readFile();
