@@ -37,4 +37,5 @@ build/
 ### Mac OS ###
 .DS_Store
 
-*.txt
+comments.txt
+bruteforcecode.txt
