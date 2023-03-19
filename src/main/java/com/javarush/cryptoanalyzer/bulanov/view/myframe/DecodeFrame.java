@@ -2,7 +2,11 @@ package com.javarush.cryptoanalyzer.bulanov.view.myframe;
 
 import com.javarush.cryptoanalyzer.bulanov.view.Entry;
 import javax.swing.*;
+import static com.javarush.cryptoanalyzer.bulanov.constants.ApplicationCompletionConstants.EXCEPTION_ENTER_KEY;
 import static com.javarush.cryptoanalyzer.bulanov.constants.ConstantsIO.*;
+import static com.javarush.cryptoanalyzer.bulanov.constants.FilePathConstants.*;
+import static com.javarush.cryptoanalyzer.bulanov.constants.FrameConstants.*;
+import static com.javarush.cryptoanalyzer.bulanov.constants.PatternConstants.PATTERN_KEY;
 
 public class DecodeFrame extends JFrame{
     private JButton jButtonEnterOne;
@@ -25,7 +29,7 @@ public class DecodeFrame extends JFrame{
         jLabelOne.setText("<html>" + ENTER_ENCRYPTED_FILE_PATH + "</html>");
         this.add(jLabelOne);
 
-        jButtonEnterOne = new JButton("Enter");
+        jButtonEnterOne = new JButton(BUTTON_ENTER);
         jButtonEnterOne.setBounds(410, 65, 100, 20);
         this.add(jButtonEnterOne);
 
@@ -43,7 +47,7 @@ public class DecodeFrame extends JFrame{
         jTextFieldTwo.setBounds(45,140, 350, 20);
         this.add(jTextFieldTwo);
 
-        jButtonEnterTwo = new JButton("Enter");
+        jButtonEnterTwo = new JButton(BUTTON_ENTER);
         jButtonEnterTwo.setBounds(410, 140, 100, 20);
         this.add(jButtonEnterTwo);
 
@@ -51,11 +55,11 @@ public class DecodeFrame extends JFrame{
         key.setBounds(100, 180, 40, 20);
         this.add(key);
 
-        JLabel jLabelKey = new JLabel("Ключ");
+        JLabel jLabelKey = new JLabel(LABEL_KEY);
         jLabelKey.setBounds(45, 180, 60, 20);
         this.add(jLabelKey);
 
-        jButtonKey = new JButton("Enter");
+        jButtonKey = new JButton(BUTTON_ENTER);
         jButtonKey.setBounds(180,180, 100,20);
         this.add(jButtonKey);
 
@@ -63,7 +67,7 @@ public class DecodeFrame extends JFrame{
         jLabelMessage.setBounds(45, 210, 550, 20);
         this.add(jLabelMessage);
 
-        jButtonStart = new JButton("Start");
+        jButtonStart = new JButton(BUTTON_START);
         jButtonStart.setBounds(250, 230, 100, 20);
         this.add(jButtonStart);
 
@@ -78,7 +82,7 @@ public class DecodeFrame extends JFrame{
             jButtonEnterOne.setEnabled(false);
             jTextFieldOne.setEnabled(false);
             if(text.isEmpty()){
-                CryptoAnalyzerFrame.parameters[1] = "encoded.txt";
+                CryptoAnalyzerFrame.parameters[1] = ENCODED_FILE;
             }else CryptoAnalyzerFrame.parameters[1] = text;
             actionJButtonEnterTwo();
         });
@@ -89,7 +93,7 @@ public class DecodeFrame extends JFrame{
             jButtonEnterTwo.setEnabled(false);
             jTextFieldTwo.setEnabled(false);
             if(text.isEmpty()){
-                CryptoAnalyzerFrame.parameters[2] = "output.txt";
+                CryptoAnalyzerFrame.parameters[2] = DECODED_FILE;
             }else CryptoAnalyzerFrame.parameters[2] = text;
             actionJButtonKey();
         });
@@ -98,9 +102,10 @@ public class DecodeFrame extends JFrame{
     public  void actionJButtonKey(){
         jButtonKey.addActionListener(e->{
             if(!isNumeric(key.getText())) {
-                jLabelMessage.setText("Введите число больше 0 !!!");
+                jLabelMessage.setText(EXCEPTION_ENTER_KEY);
+
             }else if(isNumeric(key.getText())){
-            jLabelMessage.setText("");
+            jLabelMessage.setText(LABEL_EMPTY);
             CryptoAnalyzerFrame.parameters[3] = key.getText();
             jButtonKey.setEnabled(false);
             }
@@ -115,7 +120,7 @@ public class DecodeFrame extends JFrame{
             CryptoAnalyzerFrame.jButtonDecode.setEnabled(true);
         });
     }
-    public  boolean isNumeric(String str) {
-        return str.matches("^\\d+");
+    public  boolean isNumeric(String patternKey) {
+        return patternKey.matches(PATTERN_KEY);
     }
 }

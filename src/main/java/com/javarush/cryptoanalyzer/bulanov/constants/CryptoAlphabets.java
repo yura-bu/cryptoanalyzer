@@ -1,6 +1,7 @@
 package com.javarush.cryptoanalyzer.bulanov.constants;
 
 public class CryptoAlphabets{
+    private CryptoAlphabets(){}
     private static final String LETTERS_UPPER_CASE = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
     private static final String LETTERS_LOWER_CASE = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
     private static final String NUMBERS = "0123456789";

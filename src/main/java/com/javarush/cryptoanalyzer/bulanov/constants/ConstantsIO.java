@@ -1,6 +1,7 @@
 package com.javarush.cryptoanalyzer.bulanov.constants;
 
 public class ConstantsIO{
+    private ConstantsIO(){}
     public static final String KEY = "Ключ: ";
     public static final String  ENTER_ORIG_FILE_PATH = "Введите путь к файлу, который хотите зашифровать, " +
             "или нажмите Enter для выбора файла по умолчанию";

@@ -4,8 +4,9 @@ import com.javarush.cryptoanalyzer.bulanov.view.Entry;
 
 import javax.swing.*;
 
-import static com.javarush.cryptoanalyzer.bulanov.constants.ConstantsIO.ENTER_DECRYPTED_FILE_PATH;
-import static com.javarush.cryptoanalyzer.bulanov.constants.ConstantsIO.ENTER_ENCRYPTED_FILE_PATH;
+import static com.javarush.cryptoanalyzer.bulanov.constants.ConstantsIO.*;
+import static com.javarush.cryptoanalyzer.bulanov.constants.FilePathConstants.*;
+import static com.javarush.cryptoanalyzer.bulanov.constants.FrameConstants.*;
 
 public class BruteForceFrame extends JFrame{
     private JButton jButtonEnterOne;
@@ -25,7 +26,7 @@ public class BruteForceFrame extends JFrame{
         jLabelOne.setText("<html>" + ENTER_ENCRYPTED_FILE_PATH + "</html>");
         this.add(jLabelOne);
 
-        jButtonEnterOne = new JButton("Enter");
+        jButtonEnterOne = new JButton(BUTTON_ENTER);
         jButtonEnterOne.setBounds(410, 65, 100, 20);
         this.add(jButtonEnterOne);
 
@@ -43,11 +44,11 @@ public class BruteForceFrame extends JFrame{
         jTextFieldTwo.setBounds(45,140, 350, 20);
         this.add(jTextFieldTwo);
 
-        jButtonEnterTwo = new JButton("Enter");
+        jButtonEnterTwo = new JButton(BUTTON_ENTER);
         jButtonEnterTwo.setBounds(410, 140, 100, 20);
         this.add(jButtonEnterTwo);
 
-        jButtonStart = new JButton("Start");
+        jButtonStart = new JButton(BUTTON_START);
         jButtonStart.setBounds(250, 230, 100, 20);
         this.add(jButtonStart);
 
@@ -62,7 +63,7 @@ public class BruteForceFrame extends JFrame{
             jButtonEnterOne.setEnabled(false);
             jTextFieldOne.setEnabled(false);
             if(text.isEmpty()){
-                CryptoAnalyzerFrame.parameters[1] = "encoded.txt";
+                CryptoAnalyzerFrame.parameters[1] = ENCODED_FILE;
             }else CryptoAnalyzerFrame.parameters[1] = text;
             actionJButtonEnterTwo();
         });
@@ -73,7 +74,7 @@ public class BruteForceFrame extends JFrame{
             jButtonEnterTwo.setEnabled(false);
             jTextFieldTwo.setEnabled(false);
             if(text.isEmpty()){
-                CryptoAnalyzerFrame.parameters[2] = "output.txt";
+                CryptoAnalyzerFrame.parameters[2] = DECODED_FILE;
             }else CryptoAnalyzerFrame.parameters[2] = text;
             actionJButtonStart();
         });

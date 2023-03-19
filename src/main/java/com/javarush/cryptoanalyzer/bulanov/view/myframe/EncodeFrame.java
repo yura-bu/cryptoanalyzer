@@ -1,9 +1,11 @@
 package com.javarush.cryptoanalyzer.bulanov.view.myframe;
 
-import com.javarush.cryptoanalyzer.bulanov.constants.RandomOffset;
+import com.javarush.cryptoanalyzer.bulanov.utility.RandomOffset;
 import com.javarush.cryptoanalyzer.bulanov.view.Entry;
 import javax.swing.*;
 import static com.javarush.cryptoanalyzer.bulanov.constants.ConstantsIO.*;
+import static com.javarush.cryptoanalyzer.bulanov.constants.FilePathConstants.*;
+import static com.javarush.cryptoanalyzer.bulanov.constants.FrameConstants.*;
 
 
 public class EncodeFrame extends JFrame{
@@ -25,7 +27,7 @@ public class EncodeFrame extends JFrame{
         jLabelOne.setText("<html>" + ENTER_ORIG_FILE_PATH + "</html>");
         this.add(jLabelOne);
 
-        jButtonEnterOne = new JButton("Enter");
+        jButtonEnterOne = new JButton(BUTTON_ENTER);
         jButtonEnterOne.setBounds(410, 65, 100, 20);
         this.add(jButtonEnterOne);
 
@@ -43,11 +45,11 @@ public class EncodeFrame extends JFrame{
         jTextFieldTwo.setBounds(45,140, 350, 20);
         this.add(jTextFieldTwo);
 
-        jButtonEnterTwo = new JButton("Enter");
+        jButtonEnterTwo = new JButton(BUTTON_ENTER);
         jButtonEnterTwo.setBounds(410, 140, 100, 20);
         this.add(jButtonEnterTwo);
 
-        jButtonStart = new JButton("Start");
+        jButtonStart = new JButton(BUTTON_START);
         jButtonStart.setBounds(250, 200, 100, 20);
         this.add(jButtonStart);
 
@@ -63,7 +65,7 @@ public class EncodeFrame extends JFrame{
             jButtonEnterOne.setEnabled(false);
             jTextFieldOne.setEnabled(false);
             if(text.isEmpty()){
-              CryptoAnalyzerFrame.parameters[1] = "input.txt";
+              CryptoAnalyzerFrame.parameters[1] = ORIGINAL_FILE;
             }else CryptoAnalyzerFrame.parameters[1] = text;
             actionJButtonEnterTwo();
         });
@@ -75,7 +77,7 @@ public class EncodeFrame extends JFrame{
             jButtonEnterTwo.setEnabled(false);
             jTextFieldTwo.setEnabled(false);
             if(text.isEmpty()){
-                  CryptoAnalyzerFrame.parameters[2] = "encoded.txt";
+                  CryptoAnalyzerFrame.parameters[2] = ENCODED_FILE;
             }else CryptoAnalyzerFrame.parameters[2] = text;
             actionJButtonStart();
         });

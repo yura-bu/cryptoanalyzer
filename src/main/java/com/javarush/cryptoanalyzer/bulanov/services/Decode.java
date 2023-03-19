@@ -5,6 +5,7 @@ import com.javarush.cryptoanalyzer.bulanov.repository.ReaderFile;
 import com.javarush.cryptoanalyzer.bulanov.repository.ResultCode;
 import com.javarush.cryptoanalyzer.bulanov.exeptions.ApplicationException;
 import com.javarush.cryptoanalyzer.bulanov.repository.WriterFile;
+import static com.javarush.cryptoanalyzer.bulanov.constants.ApplicationCompletionConstants.EXCEPTION_DECODED;
 
 public class Decode extends DecoderText implements Function {
 
@@ -21,7 +22,7 @@ public class Decode extends DecoderText implements Function {
             WriterFile writerFileDecryption = new WriterFile(parameters[2]);
             writerFileDecryption.writeFile(decryptedFile(Integer.parseInt(parameters[3]), readerFile.readFile()));
         } catch (Exception e){
-            return new Result(ResultCode.ERROR, new ApplicationException("Decode operation finish with exception", e));
+            return new Result(ResultCode.ERROR, new ApplicationException(EXCEPTION_DECODED, e));
         }
         return new Result(ResultCode.OK);
     }

@@ -9,11 +9,12 @@ import com.javarush.cryptoanalyzer.bulanov.repository.WriterFile;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.javarush.cryptoanalyzer.bulanov.constants.ApplicationCompletionConstants.EXCEPTION_BRUTE_FORCE;
+import static com.javarush.cryptoanalyzer.bulanov.constants.PatternConstants.STRING_STRUCTURE;
+
 public class  BruteForce extends DecoderText implements Function{
-
-private final String str = "^([а-яА-Я-]+(\\s|,\\s|:\\s|;\\s)){2,}";
-private final Pattern pattern = Pattern.compile(str);
-
+private final String stringStructure = STRING_STRUCTURE;
+private final Pattern pattern = Pattern.compile(stringStructure);
     public char[] bruteForceDecoder(StringBuilder encryptedText){
         StringBuilder decodingText = new StringBuilder();
         for (int i = 1; i < 80; i++) {
@@ -36,7 +37,7 @@ private final Pattern pattern = Pattern.compile(str);
             writerFileDecryption.writeFile(bruteForce.bruteForceDecoder(readerFile.readFile()));
 
         }catch (Exception e){
-        return new Result(ResultCode.ERROR, new ApplicationException("Decode operation finish with exception", e));
+        return new Result(ResultCode.ERROR, new ApplicationException(EXCEPTION_BRUTE_FORCE, e));
     }
         return new Result(ResultCode.OK);
     }

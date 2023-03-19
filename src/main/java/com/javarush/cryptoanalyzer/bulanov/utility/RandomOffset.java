@@ -1,4 +1,4 @@
-package com.javarush.cryptoanalyzer.bulanov.constants;
+package com.javarush.cryptoanalyzer.bulanov.utility;
 
 import java.util.Random;
 

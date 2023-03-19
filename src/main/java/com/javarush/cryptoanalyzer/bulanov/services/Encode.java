@@ -6,8 +6,7 @@ import com.javarush.cryptoanalyzer.bulanov.exeptions.ApplicationException;
 import com.javarush.cryptoanalyzer.bulanov.repository.ReaderFile;
 import com.javarush.cryptoanalyzer.bulanov.repository.ResultCode;
 import com.javarush.cryptoanalyzer.bulanov.repository.WriterFile;
-
-import java.util.Arrays;
+import static com.javarush.cryptoanalyzer.bulanov.constants.ApplicationCompletionConstants.*;
 
 
 public class Encode implements Function{
@@ -33,7 +32,6 @@ public class Encode implements Function{
     @Override
     public Result execute(String[] parameters){
         try {
-            System.out.println("encode " + Arrays.toString(parameters));
             ReaderFile readerFile = new ReaderFile(parameters[1]);
             Encode encode = new Encode();
             StringBuilder stringBuilder = readerFile.readFile();
@@ -41,7 +39,7 @@ public class Encode implements Function{
             writerFileEncryption.writeFile(encode.fileEncryption(Integer.parseInt(parameters[3]),stringBuilder));
 
         }catch (Exception e){
-            return new Result(ResultCode.ERROR, new ApplicationException("Decode operation finish with exception", e));
+            return new Result(ResultCode.ERROR, new ApplicationException(EXCEPTION_ENCODED, e));
         }
         return new Result(ResultCode.OK);
     }
